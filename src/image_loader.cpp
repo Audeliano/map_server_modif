@@ -70,10 +70,12 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
   int color_sum;
   double color_avg;
   int l = 0;
+  int m = 0;
   num_landmarks = 0;
   int var1 = 0;
   int aux_x = 0;
   int aux_y = 0;
+  int aux_xy = 0;
 
   // Load the image using SDL.  If we get NULL back, the image load failed.
   if(!(img = IMG_Load(fname)))
@@ -148,6 +150,8 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
     	  landmarks[l][1] = resp->map.info.height - j -1; //converte da coordenada de pixels para coordenada do robô.
     	  matriz_aux[l][1] = resp->map.info.height - j -1;
 
+    	  landmarks_10000x_y[l] = (10000*i)+(resp->map.info.height - j - 1); //(10000 * x) + y
+
     	  std::cout << "[" << landmarks[l][0] << ", " << landmarks[l][1] << "]";
 
     	  //Definindo os valores máximo e mínimo para x e y.
@@ -163,6 +167,7 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
     	  l++;
     	  landmarks[l][0] = -100;
     	  matriz_aux[l][0] = -100;
+
       }
 
       else if(occ < free_th)
@@ -192,10 +197,15 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
 			  matriz_aux[var1][0] = aux_x;
 			  matriz_aux[var1][1] = aux_y;
 		  }
+		  //Ordenando x e y ao mesmo tempo
+		  if (landmarks_10000x_y[l] < landmarks_10000x_y [var1]){
+			  aux_xy = landmarks_10000x_y[l];
+			  landmarks_10000x_y[l] = landmarks_10000x_y[var1];
+			  landmarks_10000x_y[var1] = aux_xy;
+		  }
 	  }
 	//  std::cout << "[" << landmarks[l][0] << ", " << landmarks[l][1] << "]" << std::endl;
   }
-
 
   SDL_FreeSurface(img);
 }

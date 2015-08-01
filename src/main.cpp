@@ -46,6 +46,10 @@
 #include "nav_msgs/MapMetaData.h"
 #include "yaml-cpp/yaml.h"
 
+#include "std_msgs/MultiArrayLayout.h"
+#include "std_msgs/MultiArrayDimension.h"
+#include "std_msgs/Int32MultiArray.h"
+
 #ifdef HAVE_NEW_YAMLCPP
 // The >> operator disappeared in yaml-cpp 0.5, so this function is
 // added to provide support for code written under the yaml-cpp 0.3 API.
@@ -62,6 +66,7 @@ class MapServer
 
 	int landmarks_[4000][2];
 	int index_;
+	int landmarks_xy_[4000];
     /** Trivial constructor */
     MapServer(const std::string& fname, double res)
     {
@@ -112,7 +117,7 @@ class MapServer
           doc["free_thresh"] >> free_th; 
         } catch (YAML::InvalidScalar) { 
           ROS_ERROR("The map does not contain a free_thresh tag or it is invalid.");
-          exit(-1);
+          exit(-1);MapServer ms(fname, res);
         }
         try { 
           doc["trinary"] >> trinary; 
@@ -172,15 +177,58 @@ class MapServer
       {
     		  landmarks_[index_][0] = map_server::matriz_aux[index_][0];
     		  landmarks_[index_][1] = map_server::matriz_aux[index_][1];
-    		  std::cout << "[[" << landmarks_[index_][0] << ", " << landmarks_[index_][1] << "]]";
+    		  std::cout << "[[" << landmarks_[index_][0] << ", " << landmarks_[index_][1] << "]] ";
+
+    		  landmarks_xy_[index_] = map_server::landmarks_10000x_y[index_];
+    		  std::cout << " (" << landmarks_xy_[index_] << ")" << std::endl;
+
     		  index_++;
       }
+      std::cout << std::endl;
       std::cout << "num_landmarks: " << map_server::num_landmarks << std::endl;
       //std::cout << "num_landmarks (index): " << index_ << std::endl;
       std::cout << "max: " << map_server::max_x << "; " << map_server::max_y << std::endl;
       std::cout << "min: " << map_server::min_x << "; " << map_server::min_y << std::endl;
 
       //std::cout << "[[" << landmarks_[0][0] << ", " << landmarks_[map_server::num_landmarks - 1][0] << "]]" << std::endl;
+
+
+
+      coordx_pub_ = n.advertise<std_msgs::Int32MultiArray>("coordx", 4000, true);
+      coordy_pub_ = n.advertise<std_msgs::Int32MultiArray>("coordy", 4000, true);
+      coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("coordxy", 4000, true);
+
+      std_msgs::Int32MultiArray array_x;
+      std_msgs::Int32MultiArray array_y;
+      std_msgs::Int32MultiArray array_xy;
+
+      array_x.data.clear();
+      array_y.data.clear();
+      array_xy.data.clear();
+
+      //os dois primeiros valores dos arrays são os valores mínimos e máximos,respectivamente, de x e y.
+      array_x.data.push_back(map_server::min_x);
+      array_y.data.push_back(map_server::min_y);
+      array_x.data.push_back(map_server::max_x);
+      array_y.data.push_back(map_server::max_y);
+
+      //carregando o array de landmarks
+      for(int p = 0; p < index_; p++){
+    	  array_x.data.push_back(landmarks_[p][0]);
+    	  array_y.data.push_back(landmarks_[p][1]);
+    	  array_xy.data.push_back(landmarks_xy_[p]);
+    	  //std::cout<<" " << array_x.data[p];
+    	  //std::cout<<"for";
+
+      }
+
+      coordx_pub_.publish(array_x);
+      coordy_pub_.publish(array_y);
+      coordxy_pub_.publish(array_xy);
+
+      std::cout << std::endl;
+      ROS_INFO("I published coordx and coordy!");
+
 
 
       service = n.advertiseService("static_map", &MapServer::mapCallback, this);
@@ -199,6 +247,9 @@ class MapServer
     ros::NodeHandle n;
     ros::Publisher map_pub;
     ros::Publisher metadata_pub;
+    ros::Publisher coordx_pub_;
+    ros::Publisher coordy_pub_;
+    ros::Publisher coordxy_pub_;
     ros::ServiceServer service;
     bool deprecated;
 
@@ -245,15 +296,17 @@ int main(int argc, char **argv)
 
   try
   {
-    MapServer ms(fname, res);
-    ros::spin();
+		MapServer ms(fname, res);
+		std::cout<<"\nDepois de criar o objeto do map server"<<std::endl;
+		ros::spin();
+		std::cout<<"Saiu do ros::spin"<<std::endl;
+
   }
   catch(std::runtime_error& e)
   {
     ROS_ERROR("map_server exception: %s", e.what());
     return -1;
   }
-
   return 0;
 }
 

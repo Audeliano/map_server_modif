@@ -68,6 +68,7 @@ int max_x = -1;
 int max_y = -1;
 int min_x = 10000;
 int min_y = 10000;
+int landmarks_10000x_y[4000];
 
 
 }
