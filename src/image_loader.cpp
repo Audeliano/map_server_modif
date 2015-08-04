@@ -70,9 +70,12 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
   int color_sum;
   double color_avg;
   int l = 0;
+  int f = 0;
   int m = 0;
   num_landmarks = 0;
+  num_free = 0;
   int var1 = 0;
+  int var2 = 0;
   int aux_x = 0;
   int aux_y = 0;
   int aux_xy = 0;
@@ -145,17 +148,17 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
     	  value = +100;
 
     	  //Criando a matriz de landmarks.
-    	  landmarks[l][0] = i;
-    	  matriz_aux[l][0] = i;
-    	  landmarks[l][1] = resp->map.info.height - j -1; //converte da coordenada de pixels para coordenada do robô.
-    	  matriz_aux[l][1] = resp->map.info.height - j -1;
-
+/*    	  landmarks[l][0] = i*res;
+    	  matriz_aux[l][0] = i*res;
+    	  landmarks[l][1] = (resp->map.info.height - j -1)*res; //converte da coordenada de pixels para coordenada do robô.
+    	  matriz_aux[l][1] = (resp->map.info.height - j -1)*res;
+*/
     	  landmarks_10000x_y[l] = (10000*i)+(resp->map.info.height - j - 1); //(10000 * x) + y
 
-    	  std::cout << "[" << landmarks[l][0] << ", " << landmarks[l][1] << "]";
+//    	  std::cout << "[" << landmarks[l][0] << ", " << landmarks[l][1] << "]";
 
     	  //Definindo os valores máximo e mínimo para x e y.
-    	  if(landmarks[l][0] > max_x && landmarks[l][0] != -100)
+/*    	  if(landmarks[l][0] > max_x && landmarks[l][0] != -100)
     		  max_x = landmarks[l][0];
     	  if(landmarks[l][0] < min_x && landmarks[l][0] != -100)
     		  min_x = landmarks[l][0];
@@ -163,15 +166,26 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
     		  max_y = landmarks[l][1];
     	  if(landmarks[l][1] < min_y)
     		  min_y = landmarks[l][1];
+*/
+    	  if(landmarks_10000x_y[l] > max_xy && landmarks_10000x_y[l] != -100)
+    		  max_xy = landmarks_10000x_y[l];
+    	  if(landmarks_10000x_y[l] < min_xy && landmarks_10000x_y[l] != -100)
+    		  min_xy = landmarks_10000x_y[l];
 
     	  l++;
-    	  landmarks[l][0] = -100;
-    	  matriz_aux[l][0] = -100;
-
+    	  landmarks_10000x_y[l] = -100;
       }
 
       else if(occ < free_th)
-        value = 0;
+      {
+    	  num_free++;
+    	  value = 0;
+
+    	  free_10000x_y[f] = (10000*i)+(resp->map.info.height - j - 1);
+    	  f++;
+    	  free_10000x_y[f] = -200;
+      }
+
       else if(trinary || alpha < 1.0)
         value = -1;
       else {
@@ -186,7 +200,7 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
   //Ordenando os valores de x do vetor de landmarks
   for(l = (num_landmarks - 1); l >= 0; l--){
 	  for(var1 = l-1; var1 >= 0; var1--){
-		  if(matriz_aux[l][0] < matriz_aux[var1][0]){
+/*		  if(matriz_aux[l][0] < matriz_aux[var1][0]){
 
 			  aux_x = matriz_aux[l][0];
 			  aux_y = matriz_aux[l][1];
@@ -197,6 +211,7 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
 			  matriz_aux[var1][0] = aux_x;
 			  matriz_aux[var1][1] = aux_y;
 		  }
+*/
 		  //Ordenando x e y ao mesmo tempo
 		  if (landmarks_10000x_y[l] < landmarks_10000x_y [var1]){
 			  aux_xy = landmarks_10000x_y[l];
@@ -206,7 +221,26 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
 	  }
 	//  std::cout << "[" << landmarks[l][0] << ", " << landmarks[l][1] << "]" << std::endl;
   }
-
+/*
+  //Ordenando os valores de x do vetor de free
+  for(f = (num_free - 1); f >= 0; f--){
+	  for(var2 = f-1; var2 >= 0; var2--){
+		  //Ordenando x e y ao mesmo tempo
+		  if (free_10000x_y[f] < free_10000x_y[var2]){
+			  aux_xy = free_10000x_y[f];
+			  free_10000x_y[f] = free_10000x_y[var2];
+			  free_10000x_y[var2] = aux_xy;
+		  }
+	  }
+	  std::cout << "[" << free_10000x_y[f] << "]" << std::endl;
+  }
+*/
+/*
+  max_x = max_xy / 10000;
+  max_y = max_xy % 10000;
+  min_x = min_xy / 10000;
+  min_y = min_xy % 10000;
+*/
   SDL_FreeSurface(img);
 }
 

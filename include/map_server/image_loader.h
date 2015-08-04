@@ -64,11 +64,15 @@ void loadMapFromFile(nav_msgs::GetMap::Response* resp,
 int landmarks[4000][2];
 int matriz_aux[4000][2];
 int num_landmarks;
+int num_free;
 int max_x = -1;
 int max_y = -1;
 int min_x = 10000;
 int min_y = 10000;
+int min_xy = 10000;
+int max_xy = -1;
 int landmarks_10000x_y[4000];
+int free_10000x_y[40000];
 
 
 }

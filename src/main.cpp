@@ -66,7 +66,9 @@ class MapServer
 
 	int landmarks_[4000][2];
 	int index_;
+	int index_free_;
 	int landmarks_xy_[4000];
+	int free_xy_[40000];
     /** Trivial constructor */
     MapServer(const std::string& fname, double res)
     {
@@ -173,58 +175,81 @@ class MapServer
 
       //carregando a matriz de landmarks[x,y].
       index_ = 0;
-      while(map_server::landmarks[index_][0] != -100)
+      while(map_server::landmarks_10000x_y[index_] != -100)
       {
-    		  landmarks_[index_][0] = map_server::matriz_aux[index_][0];
+/*    		  landmarks_[index_][0] = map_server::matriz_aux[index_][0];
     		  landmarks_[index_][1] = map_server::matriz_aux[index_][1];
     		  std::cout << "[[" << landmarks_[index_][0] << ", " << landmarks_[index_][1] << "]] ";
-
+*/
     		  landmarks_xy_[index_] = map_server::landmarks_10000x_y[index_];
     		  std::cout << " (" << landmarks_xy_[index_] << ")" << std::endl;
 
     		  index_++;
       }
+
+      index_free_ = 0;
+      while(map_server::free_10000x_y[index_free_] != -200)
+      {
+    		  free_xy_[index_free_] = map_server::free_10000x_y[index_free_];
+    		  std::cout << " (" << free_xy_[index_free_] << ")  " ;//<< std::endl;
+
+    		  index_free_++;
+      }
+
       std::cout << std::endl;
-      std::cout << "num_landmarks: " << map_server::num_landmarks << std::endl;
+      std::cout << "num_landmarks: " << map_server::num_landmarks<< std::endl;
+      std::cout << "num_free: " << map_server::num_free << std::endl;
       //std::cout << "num_landmarks (index): " << index_ << std::endl;
-      std::cout << "max: " << map_server::max_x << "; " << map_server::max_y << std::endl;
-      std::cout << "min: " << map_server::min_x << "; " << map_server::min_y << std::endl;
+      //std::cout << "max: " << map_server::max_x << "; " << map_server::max_y << std::endl;
+      //std::cout << "min: " << map_server::min_x << "; " << map_server::min_y << std::endl;
 
       //std::cout << "[[" << landmarks_[0][0] << ", " << landmarks_[map_server::num_landmarks - 1][0] << "]]" << std::endl;
 
 
 
-      coordx_pub_ = n.advertise<std_msgs::Int32MultiArray>("coordx", 4000, true);
-      coordy_pub_ = n.advertise<std_msgs::Int32MultiArray>("coordy", 4000, true);
-      coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("coordxy", 4000, true);
+      //min_xy_pub_ = n.advertise<std_msgs::Int32MultiArray>("min_xy", 4000, true);
+      //max_xy_pub_ = n.advertise<std_msgs::Int32MultiArray>("max_xy", 4000, true);
+      occ_coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("occ_coordxy", 4000, true);
+      free_coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("free_coordxy", 4000, true);
 
-      std_msgs::Int32MultiArray array_x;
-      std_msgs::Int32MultiArray array_y;
+      //std_msgs::Int32MultiArray array_min;
+      //std_msgs::Int32MultiArray array_max;
       std_msgs::Int32MultiArray array_xy;
+      std_msgs::Int32MultiArray free_array;
 
-      array_x.data.clear();
-      array_y.data.clear();
+      //array_min.data.clear();
+      //array_max.data.clear();
       array_xy.data.clear();
+      free_array.data.clear();
 
       //os dois primeiros valores dos arrays são os valores mínimos e máximos,respectivamente, de x e y.
-      array_x.data.push_back(map_server::min_x);
-      array_y.data.push_back(map_server::min_y);
-      array_x.data.push_back(map_server::max_x);
-      array_y.data.push_back(map_server::max_y);
+      //array_min.data.push_back(map_server::min_x);
+      //array_min.data.push_back(map_server::min_y);
+      //array_max.data.push_back(map_server::max_x);
+      //array_max.data.push_back(map_server::max_y);
 
       //carregando o array de landmarks
       for(int p = 0; p < index_; p++){
-    	  array_x.data.push_back(landmarks_[p][0]);
-    	  array_y.data.push_back(landmarks_[p][1]);
+    	  //array_x.data.push_back(landmarks_[p][0]);
+    	  //array_y.data.push_back(landmarks_[p][1]);
     	  array_xy.data.push_back(landmarks_xy_[p]);
     	  //std::cout<<" " << array_x.data[p];
     	  //std::cout<<"for";
 
       }
 
-      coordx_pub_.publish(array_x);
-      coordy_pub_.publish(array_y);
-      coordxy_pub_.publish(array_xy);
+      for(int f = 0; f < index_free_; f++){
+    	  //array_x.data.push_back(landmarks_[p][0]);
+    	  //array_y.data.push_back(landmarks_[p][1]);
+    	  free_array.data.push_back(free_xy_[f]);
+    	  //std::cout<<" " << array_x.data[p];
+    	  //std::cout<<"for";
+      }
+
+      //min_xy_pub_.publish(array_min);
+      //max_xy_pub_.publish(array_max);
+      occ_coordxy_pub_.publish(array_xy);
+      free_coordxy_pub_.publish(free_array);
 
       std::cout << std::endl;
       ROS_INFO("I published coordx and coordy!");
@@ -247,9 +272,10 @@ class MapServer
     ros::NodeHandle n;
     ros::Publisher map_pub;
     ros::Publisher metadata_pub;
-    ros::Publisher coordx_pub_;
-    ros::Publisher coordy_pub_;
-    ros::Publisher coordxy_pub_;
+    //ros::Publisher min_xy_pub_;
+    //ros::Publisher max_xy_pub_;
+    ros::Publisher occ_coordxy_pub_;
+    ros::Publisher free_coordxy_pub_;
     ros::ServiceServer service;
     bool deprecated;
 
