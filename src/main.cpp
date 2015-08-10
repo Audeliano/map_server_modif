@@ -191,7 +191,7 @@ class MapServer
       while(map_server::free_10000x_y[index_free_] != -200)
       {
     		  free_xy_[index_free_] = map_server::free_10000x_y[index_free_];
-    		  std::cout << " (" << free_xy_[index_free_] << ")  " ;//<< std::endl;
+    		  //std::cout << " (" << free_xy_[index_free_] << ")  " ;//<< std::endl;
 
     		  index_free_++;
       }
