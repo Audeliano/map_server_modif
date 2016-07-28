@@ -29,6 +29,9 @@
 
 /* Author: Brian Gerkey */
 
+//FAZ LEITURA DOS VETORES DE LANDMARKS E FREE, CARREGA ESTES DADOS NAS PILHAS E
+//PUBLICA NOS TÓPICOS "occ_coordxy_pub_" E "free_coordxy_pub_"
+
 #define USAGE "\nUSAGE: map_server <map.yaml>\n" \
               "  map.yaml: map description file\n" \
               "DEPRECATED USAGE: map_server <map> <resolution>\n" \
@@ -64,11 +67,11 @@ class MapServer
 {
   public:
 
-	int landmarks_[4000][2];
+	int landmarks_[10000][2];
 	int index_;
 	int index_free_;
-	int landmarks_xy_[4000];
-	int free_xy_[40000];
+	int landmarks_xy_[10000];
+	int free_xy_[100000];
     /** Trivial constructor */
     MapServer(const std::string& fname, double res)
     {
@@ -182,7 +185,7 @@ class MapServer
     		  std::cout << "[[" << landmarks_[index_][0] << ", " << landmarks_[index_][1] << "]] ";
 */
     		  landmarks_xy_[index_] = map_server::landmarks_10000x_y[index_];
-    		  std::cout << " (" << landmarks_xy_[index_] << ")" << std::endl;
+    		  //std::cout << " (" << landmarks_xy_[index_] << ")" << std::endl;
 
     		  index_++;
       }
@@ -209,8 +212,8 @@ class MapServer
 
       //min_xy_pub_ = n.advertise<std_msgs::Int32MultiArray>("min_xy", 4000, true);
       //max_xy_pub_ = n.advertise<std_msgs::Int32MultiArray>("max_xy", 4000, true);
-      occ_coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("occ_coordxy", 4000, true);
-      free_coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("free_coordxy", 4000, true);
+      occ_coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("occ_coordxy", 10000, true);
+      free_coordxy_pub_ = n.advertise<std_msgs::Int32MultiArray>("free_coordxy", 10000, true);
 
       //std_msgs::Int32MultiArray array_min;
       //std_msgs::Int32MultiArray array_max;

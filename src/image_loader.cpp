@@ -33,6 +33,9 @@
  * Author: Brian Gerkey
  */
 
+//CRIANDO VETORES DE landmarks_10000x_y[] E free_10000x_y[].
+//E ORDENANDO APENAS O VETOR landmarks_10000x_y[]
+
 #include <cstring>
 #include <stdexcept>
 
@@ -193,10 +196,13 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
         value = 99 * ratio;
       }
            
+      //MAP_IDX(sx, i, j) ((sx) * (j) + (i))
       resp->map.data[MAP_IDX(resp->map.info.width,i,resp->map.info.height - j - 1)] = value;
+
     }
   }
   std::cout << std::endl;
+
   //Ordenando os valores de x do vetor de landmarks
   for(l = (num_landmarks - 1); l >= 0; l--){
 	  for(var1 = l-1; var1 >= 0; var1--){
@@ -221,26 +227,6 @@ loadMapFromFile(nav_msgs::GetMap::Response* resp,
 	  }
 	//  std::cout << "[" << landmarks[l][0] << ", " << landmarks[l][1] << "]" << std::endl;
   }
-/*
-  //Ordenando os valores de x do vetor de free
-  for(f = (num_free - 1); f >= 0; f--){
-	  for(var2 = f-1; var2 >= 0; var2--){
-		  //Ordenando x e y ao mesmo tempo
-		  if (free_10000x_y[f] < free_10000x_y[var2]){
-			  aux_xy = free_10000x_y[f];
-			  free_10000x_y[f] = free_10000x_y[var2];
-			  free_10000x_y[var2] = aux_xy;
-		  }
-	  }
-	  std::cout << "[" << free_10000x_y[f] << "]" << std::endl;
-  }
-*/
-/*
-  max_x = max_xy / 10000;
-  max_y = max_xy % 10000;
-  min_x = min_xy / 10000;
-  min_y = min_xy % 10000;
-*/
   SDL_FreeSurface(img);
 }
 

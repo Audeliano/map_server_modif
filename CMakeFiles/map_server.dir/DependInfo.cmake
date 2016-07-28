@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/au/catkin_ws/src/navigation/map_server/src/main.cpp" "/home/au/catkin_ws/src/navigation/map_server/CMakeFiles/map_server.dir/src/main.cpp.o"
+  "/home/au/catkin_ws/src/map_server/src/main.cpp" "/home/au/catkin_ws/src/map_server/CMakeFiles/map_server.dir/src/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,5 +17,5 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/au/catkin_ws/src/navigation/map_server/CMakeFiles/image_loader.dir/DependInfo.cmake"
+  "/home/au/catkin_ws/src/map_server/CMakeFiles/image_loader.dir/DependInfo.cmake"
   )

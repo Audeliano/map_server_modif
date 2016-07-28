@@ -31,9 +31,6 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/au/catkin_ws/src
 
@@ -41,36 +38,36 @@ CMAKE_SOURCE_DIR = /home/au/catkin_ws/src
 CMAKE_BINARY_DIR = /home/au/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include navigation/map_server/CMakeFiles/map_server-map_saver.dir/depend.make
+include map_server/CMakeFiles/map_server-map_saver.dir/depend.make
 
 # Include the progress variables for this target.
-include navigation/map_server/CMakeFiles/map_server-map_saver.dir/progress.make
+include map_server/CMakeFiles/map_server-map_saver.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include navigation/map_server/CMakeFiles/map_server-map_saver.dir/flags.make
+include map_server/CMakeFiles/map_server-map_saver.dir/flags.make
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o: navigation/map_server/CMakeFiles/map_server-map_saver.dir/flags.make
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o: navigation/map_server/src/map_saver.cpp
+map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o: map_server/CMakeFiles/map_server-map_saver.dir/flags.make
+map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o: map_server/src/map_saver.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/au/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o -c /home/au/catkin_ws/src/navigation/map_server/src/map_saver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o"
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o -c /home/au/catkin_ws/src/map_server/src/map_saver.cpp
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.i: cmake_force
+map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.i"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/au/catkin_ws/src/navigation/map_server/src/map_saver.cpp > CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.i
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/au/catkin_ws/src/map_server/src/map_saver.cpp > CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.i
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.s: cmake_force
+map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.s"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/au/catkin_ws/src/navigation/map_server/src/map_saver.cpp -o CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.s
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/au/catkin_ws/src/map_server/src/map_saver.cpp -o CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.s
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires:
-.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires
+map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires:
+.PHONY : map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides: navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires
-	$(MAKE) -f navigation/map_server/CMakeFiles/map_server-map_saver.dir/build.make navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides.build
-.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides
+map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides: map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires
+	$(MAKE) -f map_server/CMakeFiles/map_server-map_saver.dir/build.make map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides.build
+.PHONY : map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides.build: navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o
+map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.provides.build: map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o
 
 # Object files for target map_server-map_saver
 map_server__map_saver_OBJECTS = \
@@ -79,7 +76,7 @@ map_server__map_saver_OBJECTS = \
 # External object files for target map_server-map_saver
 map_server__map_saver_EXTERNAL_OBJECTS =
 
-/home/au/catkin_ws/devel/lib/map_server/map_saver: navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o
+/home/au/catkin_ws/devel/lib/map_server/map_saver: map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o
 /home/au/catkin_ws/devel/lib/map_server/map_saver: /opt/ros/hydro/lib/libtf.so
 /home/au/catkin_ws/devel/lib/map_server/map_saver: /opt/ros/hydro/lib/libtf2_ros.so
 /home/au/catkin_ws/devel/lib/map_server/map_saver: /opt/ros/hydro/lib/libactionlib.so
@@ -102,23 +99,23 @@ map_server__map_saver_EXTERNAL_OBJECTS =
 /home/au/catkin_ws/devel/lib/map_server/map_saver: /usr/lib/i386-linux-gnu/libpthread.so
 /home/au/catkin_ws/devel/lib/map_server/map_saver: /opt/ros/hydro/lib/libcpp_common.so
 /home/au/catkin_ws/devel/lib/map_server/map_saver: /opt/ros/hydro/lib/libconsole_bridge.so
-/home/au/catkin_ws/devel/lib/map_server/map_saver: navigation/map_server/CMakeFiles/map_server-map_saver.dir/build.make
-/home/au/catkin_ws/devel/lib/map_server/map_saver: navigation/map_server/CMakeFiles/map_server-map_saver.dir/link.txt
+/home/au/catkin_ws/devel/lib/map_server/map_saver: map_server/CMakeFiles/map_server-map_saver.dir/build.make
+/home/au/catkin_ws/devel/lib/map_server/map_saver: map_server/CMakeFiles/map_server-map_saver.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/au/catkin_ws/devel/lib/map_server/map_saver"
-	cd /home/au/catkin_ws/src/navigation/map_server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/map_server-map_saver.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/au/catkin_ws/src/map_server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/map_server-map_saver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/build: /home/au/catkin_ws/devel/lib/map_server/map_saver
-.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/build
+map_server/CMakeFiles/map_server-map_saver.dir/build: /home/au/catkin_ws/devel/lib/map_server/map_saver
+.PHONY : map_server/CMakeFiles/map_server-map_saver.dir/build
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/requires: navigation/map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires
-.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/requires
+map_server/CMakeFiles/map_server-map_saver.dir/requires: map_server/CMakeFiles/map_server-map_saver.dir/src/map_saver.cpp.o.requires
+.PHONY : map_server/CMakeFiles/map_server-map_saver.dir/requires
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/clean:
-	cd /home/au/catkin_ws/src/navigation/map_server && $(CMAKE_COMMAND) -P CMakeFiles/map_server-map_saver.dir/cmake_clean.cmake
-.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/clean
+map_server/CMakeFiles/map_server-map_saver.dir/clean:
+	cd /home/au/catkin_ws/src/map_server && $(CMAKE_COMMAND) -P CMakeFiles/map_server-map_saver.dir/cmake_clean.cmake
+.PHONY : map_server/CMakeFiles/map_server-map_saver.dir/clean
 
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/depend:
-	cd /home/au/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/au/catkin_ws/src /home/au/catkin_ws/src/navigation/map_server /home/au/catkin_ws/src /home/au/catkin_ws/src/navigation/map_server /home/au/catkin_ws/src/navigation/map_server/CMakeFiles/map_server-map_saver.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/depend
+map_server/CMakeFiles/map_server-map_saver.dir/depend:
+	cd /home/au/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/au/catkin_ws/src /home/au/catkin_ws/src/map_server /home/au/catkin_ws/src /home/au/catkin_ws/src/map_server /home/au/catkin_ws/src/map_server/CMakeFiles/map_server-map_saver.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : map_server/CMakeFiles/map_server-map_saver.dir/depend
 

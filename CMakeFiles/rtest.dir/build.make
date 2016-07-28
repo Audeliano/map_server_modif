@@ -31,9 +31,6 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/au/catkin_ws/src
 
@@ -41,59 +38,59 @@ CMAKE_SOURCE_DIR = /home/au/catkin_ws/src
 CMAKE_BINARY_DIR = /home/au/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include navigation/map_server/CMakeFiles/rtest.dir/depend.make
+include map_server/CMakeFiles/rtest.dir/depend.make
 
 # Include the progress variables for this target.
-include navigation/map_server/CMakeFiles/rtest.dir/progress.make
+include map_server/CMakeFiles/rtest.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include navigation/map_server/CMakeFiles/rtest.dir/flags.make
+include map_server/CMakeFiles/rtest.dir/flags.make
 
-navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o: navigation/map_server/CMakeFiles/rtest.dir/flags.make
-navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o: navigation/map_server/test/rtest.cpp
+map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o: map_server/CMakeFiles/rtest.dir/flags.make
+map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o: map_server/test/rtest.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/au/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/rtest.dir/test/rtest.cpp.o -c /home/au/catkin_ws/src/navigation/map_server/test/rtest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o"
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/rtest.dir/test/rtest.cpp.o -c /home/au/catkin_ws/src/map_server/test/rtest.cpp
 
-navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.i: cmake_force
+map_server/CMakeFiles/rtest.dir/test/rtest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rtest.dir/test/rtest.cpp.i"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/au/catkin_ws/src/navigation/map_server/test/rtest.cpp > CMakeFiles/rtest.dir/test/rtest.cpp.i
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/au/catkin_ws/src/map_server/test/rtest.cpp > CMakeFiles/rtest.dir/test/rtest.cpp.i
 
-navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.s: cmake_force
+map_server/CMakeFiles/rtest.dir/test/rtest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rtest.dir/test/rtest.cpp.s"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/au/catkin_ws/src/navigation/map_server/test/rtest.cpp -o CMakeFiles/rtest.dir/test/rtest.cpp.s
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/au/catkin_ws/src/map_server/test/rtest.cpp -o CMakeFiles/rtest.dir/test/rtest.cpp.s
 
-navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires:
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires
+map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires:
+.PHONY : map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires
 
-navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides: navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires
-	$(MAKE) -f navigation/map_server/CMakeFiles/rtest.dir/build.make navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides.build
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides
+map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides: map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires
+	$(MAKE) -f map_server/CMakeFiles/rtest.dir/build.make map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides.build
+.PHONY : map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides
 
-navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides.build: navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o
+map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.provides.build: map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o
 
-navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o: navigation/map_server/CMakeFiles/rtest.dir/flags.make
-navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o: navigation/map_server/test/test_constants.cpp
+map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o: map_server/CMakeFiles/rtest.dir/flags.make
+map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o: map_server/test/test_constants.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/au/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/rtest.dir/test/test_constants.cpp.o -c /home/au/catkin_ws/src/navigation/map_server/test/test_constants.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o"
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/rtest.dir/test/test_constants.cpp.o -c /home/au/catkin_ws/src/map_server/test/test_constants.cpp
 
-navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.i: cmake_force
+map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rtest.dir/test/test_constants.cpp.i"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/au/catkin_ws/src/navigation/map_server/test/test_constants.cpp > CMakeFiles/rtest.dir/test/test_constants.cpp.i
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/au/catkin_ws/src/map_server/test/test_constants.cpp > CMakeFiles/rtest.dir/test/test_constants.cpp.i
 
-navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.s: cmake_force
+map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rtest.dir/test/test_constants.cpp.s"
-	cd /home/au/catkin_ws/src/navigation/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/au/catkin_ws/src/navigation/map_server/test/test_constants.cpp -o CMakeFiles/rtest.dir/test/test_constants.cpp.s
+	cd /home/au/catkin_ws/src/map_server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/au/catkin_ws/src/map_server/test/test_constants.cpp -o CMakeFiles/rtest.dir/test/test_constants.cpp.s
 
-navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires:
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires
+map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires:
+.PHONY : map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires
 
-navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides: navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires
-	$(MAKE) -f navigation/map_server/CMakeFiles/rtest.dir/build.make navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides.build
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides
+map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides: map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires
+	$(MAKE) -f map_server/CMakeFiles/rtest.dir/build.make map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides.build
+.PHONY : map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides
 
-navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides.build: navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o
+map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.provides.build: map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o
 
 # Object files for target rtest
 rtest_OBJECTS = \
@@ -103,8 +100,8 @@ rtest_OBJECTS = \
 # External object files for target rtest
 rtest_EXTERNAL_OBJECTS =
 
-/home/au/catkin_ws/devel/lib/map_server/rtest: navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o
-/home/au/catkin_ws/devel/lib/map_server/rtest: navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o
+/home/au/catkin_ws/devel/lib/map_server/rtest: map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o
+/home/au/catkin_ws/devel/lib/map_server/rtest: map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o
 /home/au/catkin_ws/devel/lib/map_server/rtest: gtest/libgtest.so
 /home/au/catkin_ws/devel/lib/map_server/rtest: /opt/ros/hydro/lib/libtf.so
 /home/au/catkin_ws/devel/lib/map_server/rtest: /opt/ros/hydro/lib/libtf2_ros.so
@@ -128,24 +125,24 @@ rtest_EXTERNAL_OBJECTS =
 /home/au/catkin_ws/devel/lib/map_server/rtest: /usr/lib/i386-linux-gnu/libpthread.so
 /home/au/catkin_ws/devel/lib/map_server/rtest: /opt/ros/hydro/lib/libcpp_common.so
 /home/au/catkin_ws/devel/lib/map_server/rtest: /opt/ros/hydro/lib/libconsole_bridge.so
-/home/au/catkin_ws/devel/lib/map_server/rtest: navigation/map_server/CMakeFiles/rtest.dir/build.make
-/home/au/catkin_ws/devel/lib/map_server/rtest: navigation/map_server/CMakeFiles/rtest.dir/link.txt
+/home/au/catkin_ws/devel/lib/map_server/rtest: map_server/CMakeFiles/rtest.dir/build.make
+/home/au/catkin_ws/devel/lib/map_server/rtest: map_server/CMakeFiles/rtest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/au/catkin_ws/devel/lib/map_server/rtest"
-	cd /home/au/catkin_ws/src/navigation/map_server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rtest.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/au/catkin_ws/src/map_server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rtest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-navigation/map_server/CMakeFiles/rtest.dir/build: /home/au/catkin_ws/devel/lib/map_server/rtest
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/build
+map_server/CMakeFiles/rtest.dir/build: /home/au/catkin_ws/devel/lib/map_server/rtest
+.PHONY : map_server/CMakeFiles/rtest.dir/build
 
-navigation/map_server/CMakeFiles/rtest.dir/requires: navigation/map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires
-navigation/map_server/CMakeFiles/rtest.dir/requires: navigation/map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/requires
+map_server/CMakeFiles/rtest.dir/requires: map_server/CMakeFiles/rtest.dir/test/rtest.cpp.o.requires
+map_server/CMakeFiles/rtest.dir/requires: map_server/CMakeFiles/rtest.dir/test/test_constants.cpp.o.requires
+.PHONY : map_server/CMakeFiles/rtest.dir/requires
 
-navigation/map_server/CMakeFiles/rtest.dir/clean:
-	cd /home/au/catkin_ws/src/navigation/map_server && $(CMAKE_COMMAND) -P CMakeFiles/rtest.dir/cmake_clean.cmake
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/clean
+map_server/CMakeFiles/rtest.dir/clean:
+	cd /home/au/catkin_ws/src/map_server && $(CMAKE_COMMAND) -P CMakeFiles/rtest.dir/cmake_clean.cmake
+.PHONY : map_server/CMakeFiles/rtest.dir/clean
 
-navigation/map_server/CMakeFiles/rtest.dir/depend:
-	cd /home/au/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/au/catkin_ws/src /home/au/catkin_ws/src/navigation/map_server /home/au/catkin_ws/src /home/au/catkin_ws/src/navigation/map_server /home/au/catkin_ws/src/navigation/map_server/CMakeFiles/rtest.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/depend
+map_server/CMakeFiles/rtest.dir/depend:
+	cd /home/au/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/au/catkin_ws/src /home/au/catkin_ws/src/map_server /home/au/catkin_ws/src /home/au/catkin_ws/src/map_server /home/au/catkin_ws/src/map_server/CMakeFiles/rtest.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : map_server/CMakeFiles/rtest.dir/depend
 

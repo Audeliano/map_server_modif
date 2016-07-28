@@ -33,6 +33,8 @@
  * Author: Brian Gerkey
  */
 
+//CRIAR ALGUMAS VARIÁVEIS
+
 #include "nav_msgs/GetMap.h"
 
 namespace map_server
@@ -61,8 +63,8 @@ void loadMapFromFile(nav_msgs::GetMap::Response* resp,
                      double occ_th, double free_th, double* origin,
                      bool trinary=true);
 
-int landmarks[4000][2];
-int matriz_aux[4000][2];
+int landmarks[10000][2];
+int matriz_aux[10000][2];
 int num_landmarks;
 int num_free;
 int max_x = -1;
@@ -71,8 +73,8 @@ int min_x = 10000;
 int min_y = 10000;
 int min_xy = 10000;
 int max_xy = -1;
-int landmarks_10000x_y[4000];
-int free_10000x_y[40000];
+int landmarks_10000x_y[10000];
+int free_10000x_y[100000];
 
 
 }
